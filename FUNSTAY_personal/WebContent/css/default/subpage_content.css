@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+#content {
+	padding: 11px 55px;
+	/* border: 1px solid red; */
+	width: 70%;
+	min-height: 500px;
+	float: right;
+}

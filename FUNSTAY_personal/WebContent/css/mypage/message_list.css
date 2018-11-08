@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+
+
+/* 테블릿,노트북 크기 768~1023px */
+@media all and (min-width:768px){}
+
+
+
+/* 모니터,대형스크린크기 1024~무한 */
+@media all and (min-width:1024px) {
+	
+	h1 {
+	color: #fc4401;
+	margin-bottom: 70px;
+}
+
+#content {
+	padding: 11px 55px;
+	/* border: 1px solid red; */
+	width: 70%;
+	min-height: 500px;
+	float: right;
+}
+
+#content_wrap {
+	/* width: 890px;
+	border:1px solid #666;
+	border-radius: 10px;
+	background-color: #ececec;
+	width: 700px; */
+	width: 890px;
+    border: 1px solid #cccccc;
+    width: 700px;
+    border-radius: 10px;
+}
+
+#messagelist {
+	list-style: none;
+	padding: 0 30px;
+/* 	padding: 0 60px; */
+}
+
+#messagelist li:NTH-CHILD(1) {
+	border-top: none;
+}
+
+#messagelist li {
+	border-top: 1px solid #cccccc;
+	padding: 12px 0;
+}
+
+#message_list {
+	/* border:1px solid red; */
+	/* width: 80%; */
+	height: 115px;
+	margin: 0 auto;
+	overflow: hidden !important;
+}
+
+.member_check {
+	/* border:1px solid red; */
+	min-width: 9%;
+	float: left;
+	padding: 8px 30px;
+}
+
+.member_img {
+	/* background-color: rgb(242, 242, 242) !important;
+	box-shadow: rgb(235, 235, 235) 0px 0px 0px 2px !important;
+	display: inline-block !important;
+	vertical-align: middle !important;
+	width: 80px !important;
+	height: 80px !important;
+	border-radius: 50% !important;
+	overflow: hidden !important; */
+	display: inline-block !important;
+    vertical-align: middle !important;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+}
+
+.member_symbol {
+	width: 80px !important;
+	height: 80px !important;
+}
+
+.message_preview {
+	/* border:1px solid blue; */
+	float: left;
+	width: 72%;
+	padding: 2%;
+	/* line-height: 80px; */
+	height: 80px;
+}
+
+.message_preview span {
+	display: block;
+	/* border: 1px solid red; */
+	float: right;
+	margin-bottom: 3px;
+}
+
+.message_preview a {
+	display: block;
+	clear: both;
+}
+	
+}

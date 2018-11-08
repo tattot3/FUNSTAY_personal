@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+
+/* 멤버페이지 메뉴바 css파일입니다.*/
+
+#wrap {
+    	box-sizing: border-box;
+		/* border: 1px solid blue; */
+		width: 100%;
+		min-height: 500px;
+		margin: 0 auto;
+	}
+
+#sub_menu {
+	box-sizing: border-box;
+	margin: 0;
+	width: 100%;
+	padding: 0;
+}
+
+#sub_menu ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sub_menu a {
+	text-align: center;
+	text-decoration: none;
+	display: block;
+}
+
+#sub_menu a:hover {
+	color: #fc4401;
+}
+
+.a a{
+	border-bottom: 4px solid transparent;
+}
+
+/* 테블릿,노트북 크기 768~1023px */
+@media all and (min-width:768px){
+	
+	#wrap {
+		/* border: 1px solid blue; */
+		width: 100%;
+		min-height: 500px;
+		margin: 0 auto;
+	}
+	
+}
+
+
+
+/* 모니터,대형스크린크기 1024~무한 */
+@media all and (min-width:1024px) {
+	
+	#wrap {
+	/* border:1px solid blue; */
+	width: 80%;
+	height: 1000px;
+	margin: 0 auto;
+}
+
+.sub_menu {
+	margin-top: 25px;
+	/* border:1px solid red; */
+	width: 21%;
+	float: left;
+	padding: 10px;
+	/* margin: 20px; */
+}
+
+.sub_menu ul {
+	float: right;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 161px;
+}
+
+.sub_menu a {
+	text-decoration: none;
+	display: block;
+	padding: 4%;
+}
+
+.sub_menu a:hover {
+	color: #fc4401;
+}
+
+/* .a {
+	border-bottom: 4px solid #fc4401;
+} */
+
+/* .sub_menu li a .active {
+    border-bottom: 1px solid red;
+} */
+
+}

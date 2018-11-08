@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+/* 규칙으로 정하면 좋을것 같습니다. */
+*{box-sizing:border-box;}
+h1 {
+	color: #fc4401;
+	margin-bottom: 70px;
+}
+
+/* 모바일 크기 0~767px */
+#mileagepreview_sg {
+	border:1px solid red;
+	width: 100%;
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+
+.showsnakicon_sg {
+	border: 1px solid blue;
+	width: 20%;
+	display: box;
+	float: left;
+	width: 20%;
+	padding: 20px;
+}
+
+.showsnakicon_sg i {
+	font-size: 80px;
+	color:#fc4401;
+}
+
+.previewmileage_sg {
+	border:1px solid pink;
+	width: 80%;
+	float: left;
+	padding: 20px;
+}
+
+#mileageuselist_sg {
+	border:1px solid red;
+	width:100%;
+	padding: 10px;
+}
+
+#mileageuselist_sg form {
+	margin-bottom: 10px;
+}
+
+/* 마일리지내역확인하기 css */
+.tab {
+    overflow: hidden;
+   /*  border: 1px solid #ccc;
+    background-color: #f1f1f1; */
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: #e3e3e3;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    /* background-color: #ddd; */
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #fc4401;
+    color:white;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+/* 마일리지내역확인하기 css */
+
+/* 테블릿,노트북 크기 768~1023px */
+@media all and (min-width:768px) {
+	
+	
+}
+
+
+/* 모니터,대형스크린크기 1024~무한 */
+@media all and (min-width:1024px) {}
