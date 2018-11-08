@@ -33,6 +33,7 @@ $(document).ready(function(){
 	}else if(splithref!=$('.a a:eq(4)').attr('href').substr(3)){
 		alert("불일치");
 	} */
+	//서브페이지 active 메뉴
 	
 	
 	
