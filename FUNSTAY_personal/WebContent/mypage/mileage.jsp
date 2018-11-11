@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,7 +41,9 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <!-- 보유마일리지  한눈에 보기 -->
 <div id="mileagepreview_sg">
 	<div class="showsnakicon_sg">
-		<i class="fas fa-piggy-bank"></i>
+		<a href="#">
+		<img src="../img/photo2.jpg" style="width:100%;">
+		</a>
 	</div>
 	<div class="previewmileage_sg">
 		총 누적 마일리지 : 50,000\<br>
@@ -48,13 +51,14 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 		사용가능 마일리지 : 20,000\
 	</div>
 </div>
+
  
 <!-- 마일리지 내역 확인하기 -->
 <div id="mileageuselist_sg">
 <form action="#" method="post">
-<input type="date">
-<input type="date">
-<input type="submit" value="조회하기">
+<input type="date" value="2018-11-11">
+<input type="date" value="2018-12-11">
+<input type="submit" value="조회하기" style="height:24px;background-color:#e6e4e4;border:none;">
 </form>
 
 <div class="tab">
@@ -64,7 +68,7 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 </div>
 
 <div id="total" class="tabcontent">
-  <table border="1">
+  <table border="1" class="mileagetable_sg">
   	<tr>
   		<th>일자</th>
   		<th>분류</th>

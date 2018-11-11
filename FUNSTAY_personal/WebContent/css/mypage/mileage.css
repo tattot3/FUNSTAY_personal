@@ -16,11 +16,9 @@ h1 {
 
 .showsnakicon_sg {
 	border: 1px solid blue;
-	width: 20%;
-	display: box;
 	float: left;
-	width: 20%;
-	padding: 20px;
+	width: 40%;
+	padding: 5px;
 }
 
 .showsnakicon_sg i {
@@ -30,9 +28,11 @@ h1 {
 
 .previewmileage_sg {
 	border:1px solid pink;
-	width: 80%;
+	width: 60%;
 	float: left;
 	padding: 20px;
+	line-height: 40px;
+	font-weight: bold;
 }
 
 #mileageuselist_sg {
@@ -78,9 +78,23 @@ h1 {
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+.mileagetable_sg {
+	border-collapse: collapse;
+	width:100%;
+	height:200px;
+}
+
+.mileagetable_sg td{
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.mileagetable_sg th{
+	background-color:#e3e3e3;
 }
 /* 마일리지내역확인하기 css */
 
