@@ -43,7 +43,6 @@ $(document).ready(function(){
 <div id="leftsection"></div>
 <div id="wrap">
 <div class="sub_menu">
-<nav>
 <ul>
 	<li class="a"><a href="#">회원 정보 수정</a></li>
 	<li class="a"><a href="../payment/PaymentForm.jsp">결제내역</a></li>
@@ -56,5 +55,4 @@ $(document).ready(function(){
 	<li class="a"><a href="#">예약 관리</a></li>
 	<li class="a"><a href="#">메세지함</a></li>
 </ul>
-</nav>
 </div>

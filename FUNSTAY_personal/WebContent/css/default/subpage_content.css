@@ -1,9 +1,13 @@
 @CHARSET "UTF-8";
 
+
+/* 모니터,대형스크린크기 1024~무한 */
+@media all and (min-width:1024px) {
 #content {
 	padding: 11px 55px;
 	/* border: 1px solid red; */
 	width: 70%;
 	min-height: 500px;
 	float: right;
+}
 }

@@ -8,8 +8,13 @@
 <title>FunStay</title>
 <!-- 페이지 default 링크 시작 -->
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="../css/default/login.css" rel="stylesheet">
 <link href="../css/default/default.css" rel="stylesheet">
-<!-- 페이지 default 링크 끝 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="../css/default/subpage_content.css" rel="stylesheet">
+<link href="../css/default/subpage.css" rel="stylesheet">
+<script src="../js/default/jquery-3.3.1.js"></script>
+<!-- 페이지 default 링크 끝-->
 
 <!-- payment.jsp 링크 -->
 <link href="../css/payment/PaymentForm.css" rel="stylesheet">	
@@ -24,7 +29,9 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <%-- <jsp:include page="../include/header.jsp"></jsp:include> --%>
 <!-- header  끝-->
 <hr>
-
+<!-- 회원 관리 페이지 왼쪽메뉴바 시작 -->
+<jsp:include page="../include/subpage.jsp"></jsp:include>
+<!-- 회원 관리 페이지 왼쪽메뉴바 끝 -->
 <div id="content">
 <!-- 페이지내용 시작 -->
 
@@ -42,21 +49,22 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <form>
 
 <!-- 주문 정보 영역 시작 -->
-<div id="splitwrapright_sg">
+<div id="splitwrapright_sg1">
 <div id="paymentinfo_sg">
 <h3>주문 정보</h3>
 주문번호 : djfigieowkdfj02983<br>
 <a href="#"><img src="../img/photo2.jpg" alt="숙소 미리보기 사진"></a>
-<a href="#">강남 도심중심 시티뷰가 멋있는 방</a><br><hr>
+<a href="#">강남 도시중심 시티뷰가 멋있는 방</a><br><hr>
 <i class="fas fa-user-alt"></i> x 4명<br>
 <i class="far fa-calendar-check"></i> 
 	2018.11.02
 	<i class="fas fa-long-arrow-alt-right"></i> 
 	 2018.11.05<br>
-<i class="fas fa-coins"></i> 25,000\ x 2박<br>
+<i class="fas fa-coins"></i> 숙박료 25,000\ x 2박<br>
+&nbsp;&nbsp;&nbsp;&nbsp; + 수수료 5,000\
 <div class="paytotal_sg">
 <i class="fas fa-long-arrow-alt-right"></i> 
-<i class="fas fa-coins"></i> 50.000\
+<i class="fas fa-coins"></i> 55.000\
 </div>
 </div>
 </div>
@@ -69,10 +77,6 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <tr>
 	<td>결제수단</td>
 	<td><i class="far fa-credit-card"></i> 신용카드</td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
 </tr>
 <tr>
 	<td>성함</td>
@@ -90,17 +94,24 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 	<td class="line-height">요청 메세지</td>
 	<td><textarea rows="3" cols="10" placeholder="호스트에게 요청사항을 적어주세요"></textarea></td>
 </tr>
+<tr>
+	<td>마일리지</td>
+	<td><input type="text" value="0">
+		<input type="button" value="사용하기" onclick="">
+		<input type="text" value="보유마일리지 : 5,000" readonly>	
+	</td>
+</tr>
 </table>
 </div>
 </div>
 <div class="clear"></div>
-<div id="splitwrapright_sg">
+<div id="splitwrapright_sg2">
 <input type="button" value="결제하기" id="check_module">
 </div>
 </form>
 <script src="../js/payment/PaymentForm.js"></script>
 
-<input type="button" value="날짜 확인test" id="datebtn">
+<!-- <input type="button" value="날짜 확인test" id="datebtn">
 <script>
 $("#datebtn").click(function(){
 	var newdate=new Date();
@@ -112,10 +123,11 @@ $("#datebtn").click(function(){
 	alert("기한 날짜 : "+deadline);//기한날짜
 });
 
-</script>
+</script> -->
 
 <!-- 페이지내용 끝 -->
 </div>
+</div><!-- 인클루드된 wrap의 끝  -->
 <div class="clear"></div>
 <hr>
 <!-- footer 시작-->

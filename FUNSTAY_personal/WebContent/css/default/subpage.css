@@ -1,64 +1,102 @@
 @CHARSET "UTF-8";
 
 /* 멤버페이지 메뉴바 css파일입니다.*/
+.clear{clear:both;}
 
 #wrap {
-    	box-sizing: border-box;
-		/* border: 1px solid blue; */
-		width: 100%;
-		min-height: 500px;
-		margin: 0 auto;
-	}
+	box-sizing: border-box;
+	border: 1px solid blue;
+	width: 100%;
+	min-height: 500px;
+	margin: 0 auto;
+}
 
-#sub_menu {
+.sub_menu {
+	border:1px solid red;
 	box-sizing: border-box;
 	margin: 0;
 	width: 100%;
 	padding: 0;
 }
 
-#sub_menu ul {
+.sub_menu ul {
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#sub_menu a {
+.sub_menu a {
 	text-align: center;
 	text-decoration: none;
 	display: block;
+	padding-bottom: 3px;
+	margin: 0;
+	padding:4px;
+	margin: 3px 70px;
 }
 
-#sub_menu a:hover {
+.sub_menu a:hover {
 	color: #fc4401;
 }
 
-.a a{
+/* .a a {
 	border-bottom: 4px solid transparent;
-}
+} */
 
 /* 테블릿,노트북 크기 768~1023px */
-@media all and (min-width:768px){
-	
-	#wrap {
-		/* border: 1px solid blue; */
-		width: 100%;
-		min-height: 500px;
-		margin: 0 auto;
-	}
-	
+@media all and (min-width:768px) {
+
+#wrap {
+	/* border:1px solid blue; */
+	width: 100%;
+	min-height: 1000px;
+	margin: 0 auto;
+}
+
+#content {
+	float:right;
 }
 
 
+.sub_menu {
+	margin-top: 25px;
+	/* border:1px solid red; */
+	float:left;
+	width: 21%;
+	padding: 10px;
+	/* margin: 20px; */
+}
+
+.sub_menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+}
+
+.sub_menu a {
+	text-decoration: none;
+	display: block;
+	margin: 0;
+	padding:4px;
+	
+}
+
+.sub_menu a:hover {
+	color: #fc4401;
+}
+	
+}
 
 /* 모니터,대형스크린크기 1024~무한 */
 @media all and (min-width:1024px) {
+
 	
-	#wrap {
+#wrap {
 	/* border:1px solid blue; */
 	width: 80%;
-	height: 1000px;
+	min-height: 1000px;
 	margin: 0 auto;
 }
 
@@ -66,35 +104,26 @@
 	margin-top: 25px;
 	/* border:1px solid red; */
 	width: 21%;
-	float: left;
 	padding: 10px;
 	/* margin: 20px; */
 }
 
 .sub_menu ul {
-	float: right;
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	list-style: none;
-	width: 161px;
+	width: 100%;
 }
 
 .sub_menu a {
 	text-decoration: none;
 	display: block;
-	padding: 4%;
+	margin: 0;
+	padding:4px;
 }
 
 .sub_menu a:hover {
 	color: #fc4401;
 }
-
-/* .a {
-	border-bottom: 4px solid #fc4401;
-} */
-
-/* .sub_menu li a .active {
-    border-bottom: 1px solid red;
-} */
 
 }
