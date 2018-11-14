@@ -12,7 +12,7 @@
 <link href="../css/default/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- 페이지 default 링크 끝-->
-
+ 
 
 <!-- 
 	css파일 연결할때 예시 
