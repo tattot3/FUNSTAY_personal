@@ -12,6 +12,8 @@
 <link href="../css/default/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="../css/default/subpage_content.css" rel="stylesheet">
+<link href="../css/default/subpage.css" rel="stylesheet">
+<script src="../js/default/jquery-3.3.1.js"></script>
 <!-- 페이지 default 링크 끝-->
 
 <!-- 
