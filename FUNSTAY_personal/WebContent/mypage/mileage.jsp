@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="net.booking.db.PaymentBean"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,16 +11,16 @@
 <title>FunStay</title>
 <!-- 페이지 default 링크 시작 -->
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<link href="../css/default/login.css" rel="stylesheet">
-<link href="../css/default/default.css" rel="stylesheet">
+<link href="./css/default/login.css" rel="stylesheet">
+<link href="./css/default/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="../css/default/subpage_content.css" rel="stylesheet">
-<link href="../css/default/subpage.css" rel="stylesheet">
-<script src="../js/default/jquery-3.3.1.js"></script>
+<link href="./css/default/subpage_content.css" rel="stylesheet">
+<link href="./css/default/subpage.css" rel="stylesheet">
+<script src="./js/default/jquery-3.3.1.js"></script>
 <!-- 페이지 default 링크 끝-->
 
 <!-- mileage페이지의 링크 시작 -->
-<link href="../css/mypage/mileage.css" rel="stylesheet">
+<link href="./css/mypage/mileage.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" 
 integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
@@ -37,12 +39,17 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <div id="content">
 <!-- 페이지내용 시작 -->
 
+<%
+List<PaymentBean> m_list = (List)request.getAttribute("m_list");
+String email = (String)request.getAttribute("email");
+%>
+
 <h1>나의 마일리지 확인</h1>
 <!-- 보유마일리지  한눈에 보기 -->
 <div id="mileagepreview_sg">
 	<div class="showsnakicon_sg">
 		<a href="#">
-		<img src="../img/photo2.jpg" style="width:100%;">
+		<img src="./img/photo2.jpg" style="width:100%;">
 		</a>
 	</div>
 	<div class="previewmileage_sg">
@@ -61,13 +68,13 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 <input type="submit" value="조회하기" style="height:24px;background-color:#e6e4e4;border:none;">
 </form>
 
-<div class="tab">
+<!-- <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'total')" id="defaultOpen">전체 내역</button>
   <button class="tablinks" onclick="openCity(event, 'used')">사용 내역</button>
   <button class="tablinks" onclick="openCity(event, 'save')">적립 내역</button>
-</div>
+</div> -->
 
-<div id="total" class="tabcontent">
+<!-- <div id="total" class="tabcontent"> -->
   <table border="1" class="mileagetable_sg">
   	<tr>
   		<th>일자</th>
@@ -75,52 +82,27 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
   		<th>내용</th>
   		<th>사용</th>
   		<th>적립</th>
-  		<th>잔여 마일리지</th>
+  		<!--<th>잔여 마일리지</th> -->
   	</tr>
+  	
+<%
+for(int i=0;i<m_list.size();i++){
+	PaymentBean pb=(PaymentBean)m_list.get(i);
+
+%>
   	<tr>
-  		<td>2018.04.12</td>
-  		<td>사용</td>
-  		<td>주문번호 : 00002328</td>
-  		<td>3,000</td>
-  		<td>0</td>
-  		<td>20,000</td>
+  		<td><%=pb.getPayment_date() %></td>
+  		<td><%=pb.getPayment_status() %></td>
+  		<td><%=pb.getPayment_num() %></td>
+  		<td><%=pb.getUsed_m() %></td>
+  		<td><%=pb.getStorage_m() %></td>
+  		<!-- <td>20,000</td> -->
   	</tr>
-  	<tr>
-  		<td>2018.04.12</td>
-  		<td>사용</td>
-  		<td>주문번호 : 000023350</td>
-  		<td>17,000</td>
-  		<td>0</td>
-  		<td>23,000</td>
-  	</tr>
-  	<tr>
-  		<td>2018.04.12</td>
-  		<td>적립</td>
-  		<td>주문번호 : 000023344</td>
-  		<td>0</td>
-  		<td>10,000</td>
-  		<td>40,000</td>
-  	</tr>
-  	<tr>
-  		<td>2018.04.12</td>
-  		<td>사용</td>
-  		<td>주문번호 : 000023350</td>
-  		<td>10,000</td>
-  		<td>0</td>
-  		<td>30,000</td>
-  	</tr>
-  	<tr>
-  		<td>2018.04.12</td>
-  		<td>적립</td>
-  		<td>주문번호 : 0000233342</td>
-  		<td>0</td>
-  		<td>40,000</td>
-  		<td>40,000</td>
-  	</tr>
+  	<%} %>
   </table>
 </div>
 
-<div id="used" class="tabcontent">
+<!-- <div id="used" class="tabcontent">
   <table border="1">
   	<tr>
   		<th>일자</th>
@@ -143,9 +125,9 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
   	</tr>
   </table>
 </div>
-</div>
+</div> -->
 
-<script>
+<!-- <script>
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -162,7 +144,7 @@ function openCity(evt, cityName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-</script>
+</script> -->
 
 
 <!-- 페이지내용 끝 -->

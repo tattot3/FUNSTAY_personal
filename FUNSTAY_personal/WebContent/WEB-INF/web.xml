@@ -16,6 +16,14 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   
+  <servlet>
+		<servlet-name>MemberFrontController</servlet-name>
+		<servlet-class>net.member.action.MemberFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberFrontController</servlet-name>
+		<url-pattern>*.me</url-pattern>
+	</servlet-mapping>
   
   <servlet>
     <servlet-name>BookingFrontController</servlet-name>
