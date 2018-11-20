@@ -49,13 +49,13 @@ String email = (String)request.getAttribute("email");
 <div id="mileagepreview_sg">
 	<div class="showsnakicon_sg">
 		<a href="#">
-		<img src="./img/photo2.jpg" style="width:100%;">
+		<img src="./img/photo2.jpg" style="width: 100%;height: 260px;">
 		</a>
 	</div>
 	<div class="previewmileage_sg">
 		총 누적 마일리지 : 50,000\<br>
 		사용된 마일리지 : 30,000\<br>
-		사용가능 마일리지 : 20,000\
+		사용가능 마일리지 : <%=request.getAttribute("mileage") %>\
 	</div>
 </div>
 
@@ -63,9 +63,9 @@ String email = (String)request.getAttribute("email");
 <!-- 마일리지 내역 확인하기 -->
 <div id="mileageuselist_sg">
 <form action="#" method="post">
-<input type="date" value="2018-11-11">
-<input type="date" value="2018-12-11">
-<input type="submit" value="조회하기" style="height:24px;background-color:#e6e4e4;border:none;">
+<input type="date" value="2018-11-11" id="mdate_sg">
+<input type="date" value="2018-12-11" id="mdate_sg">
+<input type="submit" value="조회하기" id="mdatebtn_sg">
 </form>
 
 <!-- <div class="tab">

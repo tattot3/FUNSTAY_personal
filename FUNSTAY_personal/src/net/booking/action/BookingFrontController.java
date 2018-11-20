@@ -18,12 +18,18 @@ public class BookingFrontController extends HttpServlet{
 		ActionForward forward = null;
 		Action action= null;
 		if(command.equals("/Booking.bo")){
-			action = new Booking();
+			action =  new Booking();
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}
-		} else if(command.equals("/MyMileage.bo")){
-			
+			/*forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./payment/PaymentForm.jsp");*/
+		} else if(command.equals("/bookingAction.bo")){
+			action = new BookingAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
 		}
 		//이동
 		if(forward != null){

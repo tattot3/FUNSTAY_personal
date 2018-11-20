@@ -62,7 +62,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try{
 			con = getConnection();
-			String sql="slect * from member where email=?";
+			String sql="select * from member where email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			
