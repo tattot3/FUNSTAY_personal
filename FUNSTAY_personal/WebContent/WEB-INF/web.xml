@@ -34,4 +34,15 @@
     <servlet-name>BookingFrontController</servlet-name>
     <url-pattern>*.bo</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>HostFrontController</servlet-name>
+    <servlet-class>net.booking.action.HostFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HostFrontController</servlet-name>
+    <url-pattern>*.ho</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

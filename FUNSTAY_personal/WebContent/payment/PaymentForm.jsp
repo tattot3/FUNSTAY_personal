@@ -28,7 +28,7 @@ integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yI
 </head>
 <body>
 <!-- header  시작-->
-<%-- <jsp:include page="../include/header.jsp"></jsp:include> --%>
+<jsp:include page="../include/header.jsp"></jsp:include>
 <!-- header  끝-->
 <hr>
 <!-- 회원 관리 페이지 왼쪽메뉴바 시작 -->
@@ -160,7 +160,7 @@ $("#datebtn").click(function(){
 <div class="clear"></div>
 <hr>
 <!-- footer 시작-->
-<%-- <jsp:include page="../include/footer.jsp"></jsp:include> --%>
+<jsp:include page="../include/footer.jsp"></jsp:include>
 <!-- footer 끝-->
 </body>
 </html>

@@ -106,13 +106,18 @@ public class MemberFrontController extends HttpServlet{
 			}
 			
 		//milege
-		}else if(command.equals("/MemeberMileage.me")){
+		}else if(command.equals("/MemberMileage.me")){
 			action = new MemberMileage();
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}
 		}else if(command.equals("/MemberSearchMC.me")){
 			action = new MileageSearch();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
+		}else if(command.equals("/MemberSearchMnav.me")){
+			action = new MileageSearchNav();
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}

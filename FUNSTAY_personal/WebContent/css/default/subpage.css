@@ -133,6 +133,7 @@
 	display: block;
 	margin: 0;
 	padding:4px;
+	width: fit-content;
 }
 
 .sub_menu a:hover {

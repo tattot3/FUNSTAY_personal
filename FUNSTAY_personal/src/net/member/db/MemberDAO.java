@@ -324,7 +324,7 @@ public class MemberDAO {
 		List<PaymentBean> m_list = new ArrayList<>();
 		try{
 			con=getConnection();
-			String sql = "select * from payment where payment_date between ? and ? && member_email=? order by payment_date desc;";
+			String sql = "select * from payment where payment_date between ? and ? and member_email=? order by payment_date desc;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, start_searchdate);
 			pstmt.setString(2, end_searchdate);

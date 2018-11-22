@@ -21,19 +21,16 @@ public class MemberMileage implements Action{
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession();
-		String email = (String)session.getAttribute("id");
+		String email = (String)session.getAttribute("email");
 		email = "kim@gmail.com";
 		
 		MemberDAO mdao = new MemberDAO();
-		
 		List<PaymentBean> m_list= mdao.getMileageList(email);
 		
 		int [] getmileage = mdao.gettotalMileage(email);
 		
 		request.setAttribute("total_m", getmileage[0]);
-		System.out.println(getmileage[0]);
 		request.setAttribute("used_m", getmileage[1]);
-		System.out.println(getmileage[1]);
 		request.setAttribute("current_m", getmileage[0]-getmileage[1]);
 		request.setAttribute("m_list", m_list);
 		request.setAttribute("email", email);
