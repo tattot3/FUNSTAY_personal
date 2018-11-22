@@ -43,10 +43,11 @@ h1 {
     /* border: 1px solid pink; */
     width: 40%;
     float: left;
-    padding: 40px 30px;
+    padding: 40px 50px;
     /* color: white; */
     color: #313131;
     height: 300px;
+    text-align: left;
 }
 
 #mileageuselist_sg {
@@ -64,6 +65,15 @@ h1 {
     height: 37px;
     padding: 10px 20px;
     width: 184px;
+}
+
+#mdatebtnnav_sg {
+	height: 24px;
+    border: 2px solid #cc1d1d;
+    background-color:transparent;
+    color: #cc1d1d;
+    width: 100px;
+    height: 37px;
 }
 
 #mdatebtn_sg {

@@ -1,6 +1,7 @@
 package net.member.db;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -253,7 +254,9 @@ public class MemberDAO {
 		return list;
 	}
 	
-	//마일리지 
+	//마일리지 DAO시작 
+	
+	//마일리지 내역리스트 select
 	public List<PaymentBean> getMileageList(String email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -264,7 +267,6 @@ public class MemberDAO {
 			String sql = "select payment_date, payment_num, storage_m, used_m, payment_status from payment where member_email=? order by payment_date desc;";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
-			System.out.println("pstmt");
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				PaymentBean pb = new PaymentBean();
@@ -275,7 +277,6 @@ public class MemberDAO {
 				pb.setPayment_status(rs.getString("payment_status"));
 				
 				m_list.add(pb);
-				System.out.println("pb저장");
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -287,8 +288,67 @@ public class MemberDAO {
 		return m_list;
 	}
 	
+	// 누적 적립/사용, 현재 보유 마일리지 select
+	public int[] gettotalMileage(String member_email){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int [] getmileage = new int[2];
+		try{
+			con=getConnection();
+			String sql = "select sum(storage_m) as total_m, sum(used_m) as use_m from payment where member_email=? && payment_status='결제완료'";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member_email);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				getmileage[0] = rs.getInt("total_m");
+				getmileage[1] = rs.getInt("use_m");
+				
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null){try{rs.close();}catch(SQLException e){}}
+			if(pstmt!=null){try{pstmt.close();}catch(SQLException e){}}
+			if(con!=null){try{con.close();}catch(SQLException e){}}
+		}
+		return getmileage;
+	}
 	
-	
+	//기간별 마일리지 내역리스트 select
+	public List<PaymentBean> getSearchMileageList(String email, String start_searchdate, String end_searchdate){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<PaymentBean> m_list = new ArrayList<>();
+		try{
+			con=getConnection();
+			String sql = "select * from payment where payment_date between ? and ? && member_email=? order by payment_date desc;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, start_searchdate);
+			pstmt.setString(2, end_searchdate);
+			pstmt.setString(3, email);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				PaymentBean pb = new PaymentBean();
+				pb.setPayment_date(rs.getDate("payment_date"));
+				pb.setPayment_num(rs.getString("payment_num"));
+				pb.setStorage_m(rs.getInt("storage_m"));
+				pb.setUsed_m(rs.getInt("used_m"));
+				pb.setPayment_status(rs.getString("payment_status"));
+				
+				m_list.add(pb);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return m_list;
+	}
 	
 	
 	

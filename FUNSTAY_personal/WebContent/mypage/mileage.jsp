@@ -1,6 +1,7 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="net.booking.db.PaymentBean"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,9 +24,21 @@
 <link href="./css/mypage/mileage.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" 
 integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--  mileage페이지의 링크 끝 -->
+<script>
+//최근 7일의 마일리지 내역 불러오기
+$(document).ready(function(){
+	var d2 = new Date().getDate();
+	var d1 = new Date().getDate()-7;
+	$('#mdatebtnnav_sg').click(function(){
+		$.ajax('./SearchMnav.me?');
+	});
+	//최근 1개월의 마일리지 내역 불러오기
+	//최근 3개월의 마일리지 내역 불러오기
+});
 
+</script>
 </head>
 <body>
 <!-- header  시작-->
@@ -53,18 +66,27 @@ String email = (String)request.getAttribute("email");
 		</a>
 	</div>
 	<div class="previewmileage_sg">
-		총 누적 마일리지 : 50,000\<br>
-		사용된 마일리지 : 30,000\<br>
-		사용가능 마일리지 : <%=request.getAttribute("mileage") %>\
+		총 누적 마일리지 : <%=request.getAttribute("total_m") %> <b style="color: #cc1d1d;">M</b><br>
+		사용된 마일리지 : <%=(int)request.getAttribute("total_m")-(int)request.getAttribute("current_m") %> <b style="color: #cc1d1d;">M</b><br>
+		사용가능 마일리지 : <%=request.getAttribute("current_m") %> <b style="color: #cc1d1d;">M</b>
 	</div>
 </div>
-
+<%
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+Calendar cal = Calendar.getInstance();
+String strToday = sdf.format(cal.getTime());
+String beforemonth = sdf.format(cal.getTime());
+%>
  
 <!-- 마일리지 내역 확인하기 -->
 <div id="mileageuselist_sg">
-<form action="#" method="post">
-<input type="date" value="2018-11-11" id="mdate_sg">
-<input type="date" value="2018-12-11" id="mdate_sg">
+
+<form action="./MemberSearchMC.me" method="post">
+<input type="button" value="1주일" id="mdatebtnnav_sg" onclick="Wsearch()">
+<input type="button" value="1개월" id="mdatebtnnav_sg" onclick="Msearch()">
+<input type="button" value="3개월" id="mdatebtnnav_sg" onclick="HYsearch()">
+<input type="date" value="" id="mdate_sg" name="start_searchdate" style="margin-left: 51px;"> ~
+<input type="date" value="<%=strToday%>" id="mdate_sg" name="end_searchdate">
 <input type="submit" value="조회하기" id="mdatebtn_sg">
 </form>
 
@@ -88,7 +110,6 @@ String email = (String)request.getAttribute("email");
 <%
 for(int i=0;i<m_list.size();i++){
 	PaymentBean pb=(PaymentBean)m_list.get(i);
-
 %>
   	<tr>
   		<td><%=pb.getPayment_date() %></td>
@@ -96,36 +117,10 @@ for(int i=0;i<m_list.size();i++){
   		<td><%=pb.getPayment_num() %></td>
   		<td><%=pb.getUsed_m() %></td>
   		<td><%=pb.getStorage_m() %></td>
-  		<!-- <td>20,000</td> -->
   	</tr>
   	<%} %>
   </table>
 </div>
-
-<!-- <div id="used" class="tabcontent">
-  <table border="1">
-  	<tr>
-  		<th>일자</th>
-  		<th>분류</th>
-  		<th>내용</th>
-  		<th>사용 마일리지</th>
-  		<th>잔여 마일리지</th>
-  	</tr>
-  </table>
-</div>
-
-<div id="save" class="tabcontent">
-  <table border="1">
-  	<tr>
-  		<th>일자</th>
-  		<th>분류</th>
-  		<th>내용</th>
-  		<th>적립 마일리지</th>
-  		<th>잔여 마일리지</th>
-  	</tr>
-  </table>
-</div>
-</div> -->
 
 <!-- <script>
 function openCity(evt, cityName) {

@@ -64,17 +64,16 @@ public class BookingDAO {
 		}
 	}
 	
-	public void updatemileage(PaymentBean pb){
+	public void updatemileage(String member_email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		//ResultSet rs = null;
 		try{
 			con = getConnection();
-			String sql = "update member set mileage=mileage+?-? where email=?";
+			String sql = "update member set mileage=(select sum(storage_m)-sum(used_m) from payment where member_email=? && payment_status='결제완료') where email=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, pb.getStorage_m());
-			pstmt.setInt(2, pb.getUsed_m());
-			pstmt.setString(3, pb.getMember_email());
+			pstmt.setString(1, member_email);
+			pstmt.setString(2, member_email);
 			
 			pstmt.executeUpdate();
 			

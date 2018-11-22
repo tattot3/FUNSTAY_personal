@@ -111,6 +111,11 @@ public class MemberFrontController extends HttpServlet{
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}
+		}else if(command.equals("/MemberSearchMC.me")){
+			action = new MileageSearch();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
 		}
 		
 		
