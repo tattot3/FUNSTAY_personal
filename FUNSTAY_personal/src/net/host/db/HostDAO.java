@@ -18,14 +18,13 @@ public class HostDAO {
 	private Connection getConnection() throws Exception {
 		Connection con = null;
 		Context init = new InitialContext();
-		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/mysqlDB");
+		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MysqlDB");
 		con = ds.getConnection();
-		
 		return con;
 	}
 	
 	// 호스트 여부 체크
-	public int hostCehck(String host_email){
+	public int hostCheck(String host_email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -49,6 +48,35 @@ public class HostDAO {
 			}catch(SQLException e){}
 		}
 		return result;		
+	}
+	
+	// 호스트 cash 누적적립/인출
+	public int[] getCashAmount(String host_email){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int[] cash = new int[2];
+		try{
+			con = getConnection();
+			String sql = "select * from host where host_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_email);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				cash[0] = rs.getInt("cash");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(SQLException e){}
+		}
+		
+		return cash;
 	}
 	
 	// 호스트 cash 내역리스 select
@@ -80,6 +108,37 @@ public class HostDAO {
 			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
 		return c_list;
+	}
+	
+	public List<HomeBean> getHostHomes(String host_email){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<HomeBean> hostHome = new ArrayList<>();
+		try{
+			con = getConnection();
+			String sql = "select room_subject, home_num from home where host_email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, host_email);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				HomeBean hb = new HomeBean();
+				hb.setHome_num(rs.getInt("home_num"));
+				hb.setRoom_subject(rs.getString("room_subject"));
+				hostHome.add(hb);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(SQLException e){}
+		}
+		
+		return hostHome;
 	}
 	
 }

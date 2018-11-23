@@ -37,7 +37,7 @@
   
    <servlet>
     <servlet-name>HostFrontController</servlet-name>
-    <servlet-class>net.booking.action.HostFrontController</servlet-class>
+    <servlet-class>net.host.action.HostFrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>

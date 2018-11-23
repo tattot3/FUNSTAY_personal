@@ -1,3 +1,4 @@
+<%@page import="net.host.db.HomeBean"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
@@ -26,35 +27,12 @@
 integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 <!-- ajax링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--  mileage페이지의 링크 끝 -->
-<script>
-//최근 7일의 마일리지 내역 불러오기
-$(document).ready(function(){
-	// 현재 일 
-	var now = new Date();
-	var d2 = new Date().getDate();
-	// 현재 기준 7일 전 날짜
-	var d1 = new Date().getDate()-6;
-	// 년월일 조합해서 변수에 담기 ex> 2018-11-20
-	var start_searchdate = now.getFullYear()+"-"+now.getMonth()+"-"+d1;
-	var end_searchdate = now.getFullYear()+"-"+now.getMonth()+"-"+d2;
-	// Wsearch라는 이름을 가지는 class를 클릭했을 때의  함수
-	$('.Wsearch').click(function(){
-		// ajax시작
-		$.ajax({
-			type:"get",
-			url:"./MemberSearchMnav.me",
-			data : {start_searchdate:start_searchdate, end_searchdate:end_searchdate}
-		})
-		.done(function(result){
-			alert("콜백 성공");
-		});
-	});
-	//최근 1개월의 마일리지 내역 불러오기
-	//최근 3개월의 마일리지 내역 불러오기
-});
 
-</script>
+	<!-- JSON링크 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/mypage/HostCash.js"></script>
+<!--  mileage페이지의 링크 끝 -->
+
 </head>
 <body>
 <!-- header  시작-->
@@ -69,22 +47,22 @@ $(document).ready(function(){
 <!-- 페이지내용 시작 -->
 
 <%
-List<PaymentBean> m_list = (List)request.getAttribute("m_list");
 String email = (String)request.getAttribute("email");
 %>
 
-<h1>나의 마일리지 확인</h1>
+<h1>| MY CASH</h1>
 <!-- 보유마일리지  한눈에 보기 -->
 <div id="mileagepreview_sg">
+	<div class="previewmileage_sg" style="width:44%;line-height:60px;">
+		총 누적 캐쉬 :  <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> M</b><br>
+		인출한 캐쉬 :  <b style="color: #cc1d1d;">0 M</b><br>
+		인출 가능 캐쉬 : <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> M</b><br>
+		<input type="button" value="인출하기" id="mdatebtn_sg" style="float:right;" onclick="alert('서비스 준비중');">
+	</div>
 	<div class="showsnakicon_sg">
 		<a href="#">
 		<img src="./img/photo2.jpg" style="width: 100%;height: 260px;">
 		</a>
-	</div>
-	<div class="previewmileage_sg">
-		총 누적 마일리지 : <%=request.getAttribute("total_m") %> <b style="color: #cc1d1d;">M</b><br>
-		사용된 마일리지 : <%=(int)request.getAttribute("total_m")-(int)request.getAttribute("current_m") %> <b style="color: #cc1d1d;">M</b><br>
-		사용가능 마일리지 : <%=request.getAttribute("current_m") %> <b style="color: #cc1d1d;">M</b>
 	</div>
 </div>
 <%
@@ -98,43 +76,49 @@ String beforemonth = sdf.format(cal.getTime());
 <div id="mileageuselist_sg">
 
 <form action="./MemberSearchMC.me" method="post">
-<input type="button" value="1주일" id="mdatebtnnav_sg" class="Wsearch">
 <input type="button" value="1개월" id="mdatebtnnav_sg" class="Msearch">
 <input type="button" value="3개월" id="mdatebtnnav_sg" class="HYsearch">
-<input type="date" value="" id="mdate_sg" name="start_searchdate" style="margin-left: 51px;"> ~
-<input type="date" value="<%=strToday%>" id="mdate_sg" name="end_searchdate">
-<input type="submit" value="조회하기" id="mdatebtn_sg">
+<select name="room_subject" id="mdate_sg" class="room_subselect_sg" style="margin-left:57px;padding:7px;">
+<option selected>-- 숙소선택 --</option>
+<option value='0'>전체</option>
+<%
+List<HomeBean> hostHome = (List)request.getAttribute("hostHome");
+for(int i=0; i<hostHome.size(); i++){
+	HomeBean hb = hostHome.get(i);
+%>
+<option value='<%=hb.getHome_num()%>'>
+	<%=hb.getRoom_subject()%>
+</option>
+
+<%} %>
+</select>
+<!-- <input type="text" placeholder="숙소제목" name="room_subject" id="mdate_sg" style="margin-left:77px"> -->
+<input type="date" id="mdate_sg" name="start_searchdate" class="start_searchdate" style="width:140px;padding:5px;"> ~
+<input type="date" value="<%=strToday%>" id="mdate_sg" class="end_searchdate" name="end_searchdate" style="width:140px;padding:5px;">
+<input type="button" value="조회하기" id="mdatebtn_sg" class="mdatebtn_sg">
 </form>
 
-<!-- <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'total')" id="defaultOpen">전체 내역</button>
-  <button class="tablinks" onclick="openCity(event, 'used')">사용 내역</button>
-  <button class="tablinks" onclick="openCity(event, 'save')">적립 내역</button>
-</div> -->
 
-<!-- <div id="total" class="tabcontent"> -->
   <table border="1" class="mileagetable_sg">
   	<tr>
   		<th>일자</th>
   		<th>분류</th>
   		<th>내용</th>
-  		<th>사용</th>
-  		<th>적립</th>
-  		<!--<th>잔여 마일리지</th> -->
+  		<th>캐쉬</th>
   	</tr>
   	
 <%
-for(int i=0;i<m_list.size();i++){
-	PaymentBean pb=(PaymentBean)m_list.get(i);
+List<PaymentBean> c_list = (List)request.getAttribute("c_list");
+for(int i=0;i<c_list.size();i++){
+	PaymentBean pb=(PaymentBean)c_list.get(i);
 %>
-  	<tr>
-  		<td><%=pb.getPayment_date() %></td>
-  		<td><%=pb.getPayment_status() %></td>
-  		<td><%=pb.getPayment_num() %></td>
-  		<td><%=pb.getUsed_m() %></td>
-  		<td><%=pb.getStorage_m() %></td>
+<tr class="mempty_sg">
+  		<td><%=pb.getPayment_date()%></td>
+  		<td><%=pb.getPayment_status()%></td>
+  		<td><%=pb.getPayment_num()%></td>
+  		<td><%=pb.getSum_price()%></td>
   	</tr>
-  	<%} %>
+  	<%}%>
   </table>
 </div>
 

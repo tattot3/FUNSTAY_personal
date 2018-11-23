@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.booking.db.PaymentBean;
+import net.host.db.HomeBean;
 import net.host.db.HostDAO;
 
 public class HostCash implements Action{
@@ -21,17 +22,30 @@ public class HostCash implements Action{
 		
 		HttpSession session = request.getSession();
 		String host_email = (String)session.getAttribute("email");
-		host_email = "seoul@gmail.com";
+		host_email = "jeju@gmail.com";
+		int[] totalCash;
 		
 		HostDAO hdao = new HostDAO();
 		
 		//	호스트 여부 체크
-		int result = hdao.hostCehck(host_email);
+		int result = hdao.hostCheck(host_email);
 		
 		if(result==1){
 			System.out.println("host");
-			// 해당 호스트의 cash내역을 list에 저장
+			// 해당 호스트의 cash 누적적립/인출 
+			totalCash = hdao.getCashAmount(host_email);
+			
+			// 해당 호스트의 cash내역
 			List<PaymentBean> c_list = hdao.getCashList(host_email);
+			
+			// 해당 호스트가 소유하고 있는 home정보
+			List<HomeBean> hostHome = hdao.getHostHomes(host_email);
+			
+			
+			request.setAttribute("c_list", c_list);
+			request.setAttribute("totalCash[0]", totalCash[0]);
+			request.setAttribute("hostHome", hostHome);
+			System.out.println(request.getAttribute("hostHome"));
 			
 			forward.setRedirect(false);
 			forward.setPath("./mypage/HostCash.jsp");

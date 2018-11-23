@@ -56,7 +56,7 @@ $(document).ready(function(){
 	if(pathArray[2]==("MemberSearchMC.me")){
 		$('.a a:eq('+3+')').css({"border-bottom":"4px solid #cc1d1d"});
 	}
-	for(var i=0; i<=10; i++){
+	for(var i=0; i<9; i++){
 		if(pathArray[2]==$('.a a:eq('+i+')').attr('href').substr(2)){
 			$('.a a:eq('+i+')').css({"border-bottom":"4px solid #cc1d1d"});
 			break;
@@ -74,10 +74,10 @@ $(document).ready(function(){
 	<li class="a"><a href="../myinfo/wishlist.jsp">위시리스트</a></li>
 	<li class="a"><a href="./MemberMileage.me" class="aa">마일리지</a></li>
 	<li class="a"><a href="../mypage/messageList.jsp">메세지함</a></li>
-	<li class="a"><hr></li>
+	<li><hr></li>
 	<li class="a"><a href="#">숙소 정보 수정</a></li>
 	<li class="a"><a href="#">숙소 삭제</a></li>
 	<li class="a"><a href="#">예약 관리</a></li>
-	<li class="a"><a href="#">메세지함</a></li>
+	<li class="a"><a href="./HostCash.ho">MY CASH</a></li>
 </ul>
 </div>
