@@ -26,8 +26,10 @@
 integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 <!-- ajax링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/mypage/mileage.js"></script>
 <!--  mileage페이지의 링크 끝 -->
-<script>
+
+<!-- <script>
 //최근 7일의 마일리지 내역 불러오기
 $(document).ready(function(){
 	// 현재 일 
@@ -45,13 +47,13 @@ $(document).ready(function(){
 		var start_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d1;
 		var end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
 		// ajax시작
-		// ./MileageSearchNav.me -> jsonparsing error
+			// MVC2 가상주소 URL로 보내면 ./MileageSearchNav.me -> jsonparsing error
 		$.getJSON({
 			dataType: "json",
 			url:"./mypage/MileageSearchNav.jsp",
 			data : {start_searchdate:start_searchdate, end_searchdate:end_searchdate},
+			// 성공,  콜백 함수
 			success : function(data){
-				//페이지를 새로고침
 				//기존에 테이블에 있던 데이터들 삭제
 				$('.mempty_sg').empty();
 				//버튼1,2,3의  변경되는 css
@@ -73,6 +75,7 @@ $(document).ready(function(){
 				});
 						
 			},
+			// 실패, 콜백 함수 에러 메세지
 			error: function (jqXHR, textStatus, errorThrown) {
 	               alert("ERROR" + textStatus + " : " + errorThrown);
 	               alert(data);
@@ -156,7 +159,7 @@ $(document).ready(function(){
 
 });
 
-</script>
+</script> -->
 </head>
 <body>
 <!-- header  시작-->
