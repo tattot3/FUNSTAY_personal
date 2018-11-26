@@ -16,8 +16,8 @@ String end_searchdate = request.getParameter("end_searchdate");
 String sql=null;
 
 //int home_num=1;
-start_searchdate="2018-11-02";
-end_searchdate="2018-11-25";
+//start_searchdate="2018-11-02";
+//end_searchdate="2018-11-25";
 System.out.println(email);
 System.out.println(home_num);
 System.out.println(start_searchdate);

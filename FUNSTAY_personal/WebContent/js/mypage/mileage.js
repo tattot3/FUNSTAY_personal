@@ -12,13 +12,13 @@ $(document).ready(function(){
 	//alert(end_searchdate);
 	// 최근 일주일간의 마일리지 내역 불러오기
 	$('.Wsearch').click(function(){
-		var start_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d1;
-		var end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
+		start_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d1;
+		end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
 		// JSON시작
 			// MVC2 가상주소 URL로 보내면 ./MileageSearchNav.me -> jsonparsing error
 		$.getJSON({
 			dataType: "json",
-			url:"./mypage/MileageSearchNav.jsp",
+			url:"./mypage/JSON/MileageSearchNav.jsp",
 			data : {start_searchdate:start_searchdate, end_searchdate:end_searchdate},
 			// 성공,  콜백 함수
 			success : function(data){
@@ -37,8 +37,13 @@ $(document).ready(function(){
 					"background-color":"transparent",
 					"color":"#313131"
 				});
+				//검색 내역이 없을때 나타나는 문구
+				if(data==""){
+					$('.mileagetable_sg').append('<tr class="mempty_sg"><td colspan="5" style="text-align:center;">조회결과가 없습니다</td></tr>');
+				}
 				//최근 일주일의 마일리지내역을 테이블에 출력
 				$.each(data,function(index,item){
+					//alert(data);
 					$('.mileagetable_sg').append('<tr class="mempty_sg"><td>'+item.payment_date+'</td><td>'+item.payment_status+'</td><td>'+item.payment_num+'</td><td>'+item.used_m+'</td><td>'+item.storage_m+'</td></tr>');
 				});
 						
@@ -53,12 +58,12 @@ $(document).ready(function(){
 	});
 	//최근 1개월의 마일리지 내역 불러오기
 	$('.Msearch').click(function(){
-		var start_searchdate = now.getFullYear()+"-"+now.getMonth()+"-"+d2;
-		var end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
+		start_searchdate = now.getFullYear()+"-"+now.getMonth()+"-"+d2;
+		end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
 		// JSON시작
 		$.getJSON({
 			dataType: "json",
-			url:"./mypage/MileageSearchNav.jsp",
+			url:"./mypage/JSON/MileageSearchNav.jsp",
 			data : {start_searchdate:start_searchdate, end_searchdate:end_searchdate},
 			success : function(data){
 				//페이지를 새로고침
@@ -77,6 +82,10 @@ $(document).ready(function(){
 					"background-color":"transparent",
 					"color":"#313131"
 				});
+				//검색 내역이 없을때 나타나는 문구
+				if(data==""){
+					$('.mileagetable_sg').append('<tr class="mempty_sg"><td colspan="5" style="text-align:center;">조회결과가 없습니다</td></tr>');
+				}
 				//최근 일주일의 마일리지내역을 테이블에 출력
 				$.each(data,function(index,item){
 					$('.mileagetable_sg').append('<tr class="mempty_sg"><td>'+item.payment_date+'</td><td>'+item.payment_status+'</td><td>'+item.payment_num+'</td><td>'+item.used_m+'</td><td>'+item.storage_m+'</td></tr>');
@@ -91,15 +100,14 @@ $(document).ready(function(){
 	});
 	//최근 3개월의 마일리지 내역 불러오기
 	$('.HYsearch').click(function(){
-		var start_searchdate = now.getFullYear()+"-"+(now.getMonth()-3)+"-"+d2;
-		var end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
+		start_searchdate = now.getFullYear()+"-"+(now.getMonth()-3)+"-"+d2;
+		end_searchdate = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+d2;
 		// JSON시작
 		$.getJSON({
 			dataType: "json",
-			url:"./mypage/MileageSearchNav.jsp",
+			url:"./mypage/JSON/MileageSearchNav.jsp",
 			data : {start_searchdate:start_searchdate, end_searchdate:end_searchdate},
 			success : function(data){
-				//페이지를 새로고침
 				//기존에 테이블에 있던 데이터들 삭제
 				$('.mempty_sg').empty();
 				//버튼1,2,3의  변경되는 css
@@ -115,6 +123,10 @@ $(document).ready(function(){
 					"background-color":"#cc1d1d",
 					"color":"white"
 				});
+				//검색 내역이 없을때 나타나는 문구
+				if(data==""){
+					$('.mileagetable_sg').append('<tr class="mempty_sg"><td colspan="5" style="text-align:center;">조회결과가 없습니다</td></tr>');
+				}
 				//최근 일주일의 마일리지내역을 테이블에 출력
 				$.each(data,function(index,item){
 					$('.mileagetable_sg').append('<tr class="mempty_sg"><td>'+item.payment_date+'</td><td>'+item.payment_status+'</td><td>'+item.payment_num+'</td><td>'+item.used_m+'</td><td>'+item.storage_m+'</td></tr>');

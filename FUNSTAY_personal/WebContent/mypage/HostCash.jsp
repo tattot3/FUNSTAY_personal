@@ -25,8 +25,6 @@
 <link href="./css/mypage/mileage.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" 
 integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-<!-- ajax링크 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<!-- JSON링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -54,9 +52,10 @@ String email = (String)request.getAttribute("email");
 <!-- 보유마일리지  한눈에 보기 -->
 <div id="mileagepreview_sg">
 	<div class="previewmileage_sg" style="width:44%;line-height:60px;">
-		총 누적 캐쉬 :  <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> M</b><br>
-		인출한 캐쉬 :  <b style="color: #cc1d1d;">0 M</b><br>
-		인출 가능 캐쉬 : <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> M</b><br>
+		총 누적 캐쉬 :  <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> C</b><br>
+		인출한 캐쉬 :  <b style="color: #cc1d1d;">0 C</b><br>
+		인출 가능 캐쉬 : <b style="color: #cc1d1d;"><%=request.getAttribute("totalCash[0]") %> C</b><br>
+		<!-- 은행권 공동 오픈플랫폼 - 입금이체 API -->
 		<input type="button" value="인출하기" id="mdatebtn_sg" style="float:right;" onclick="alert('서비스 준비중');">
 	</div>
 	<div class="showsnakicon_sg">
@@ -121,25 +120,6 @@ for(int i=0;i<c_list.size();i++){
   	<%}%>
   </table>
 </div>
-
-<!-- <script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script> -->
 
 
 <!-- 페이지내용 끝 -->

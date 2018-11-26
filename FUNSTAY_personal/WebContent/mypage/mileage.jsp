@@ -24,8 +24,8 @@
 <link href="./css/mypage/mileage.css" rel="stylesheet">
 
 	<!-- JSON링크 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="./js/mypage/mileage.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ --><script src="./js/mypage/mileage.js"></script>
 <!--  mileage페이지의 링크 끝 -->
 
 </head>

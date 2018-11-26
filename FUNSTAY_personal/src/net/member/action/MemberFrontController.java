@@ -121,6 +121,11 @@ public class MemberFrontController extends HttpServlet{
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){e.printStackTrace();}
+		}else if(command.equals("/MemberQNA.me")){
+			action = new MemberQnaAction();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){e.printStackTrace();}
 		}
 		
 		

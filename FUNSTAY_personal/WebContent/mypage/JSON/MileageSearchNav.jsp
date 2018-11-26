@@ -14,8 +14,8 @@ String end_searchdate = request.getParameter("end_searchdate");
 System.out.println(start_searchdate);
 System.out.println(end_searchdate);
 
-//start_searchdate="2018-11-16";
-//end_searchdate="2018-11-22";
+//start_searchdate="2018-10-16";
+//end_searchdate="2018-10-22";
 JSONArray arr = new JSONArray();
 
 Class.forName("com.mysql.jdbc.Driver");
@@ -30,7 +30,8 @@ pstmt.setString(2, end_searchdate);
 pstmt.setString(3, email);
 ResultSet rs = pstmt.executeQuery();
 
-while(rs.next()){
+
+	while(rs.next()){
 	
 	JSONObject pb=new JSONObject();
 	pb.put("payment_date", rs.getString("payment_date"));
@@ -40,6 +41,8 @@ while(rs.next()){
 	pb.put("payment_status", rs.getString("payment_status"));
 	
 	arr.add(pb);
-}
+	}
+
+
 %>
 <%=arr%>

@@ -8,11 +8,11 @@ Contact mail:FUNSTAY@FUNSTAYbiz.com Tel +82 64 123 4315 Fax +82 64 123 4321(â€»ì
 </nav>
 
 <nav>
-<a href="https://www.facebook.com/" target="_blank"><img alt="face" src="../img/face.jpg" class="img_2_WS" id="img_2_WS"></a>
-<a href="https://www.instagram.com/" target="_blank"><img alt="instar" src="../img/Instagram.png" class="img_2_WS"></a>
-<a href="https://twitter.com/" target="_blank"><img alt="twit" src="../img/twitter.png" class="img_2_WS"></a>
+<a href="https://www.facebook.com/" target="_blank"><img alt="face" src="./img/face.jpg" class="img_2_WS" id="img_2_WS"></a>
+<a href="https://www.instagram.com/" target="_blank"><img alt="instar" src="./img/Instagram.png" class="img_2_WS"></a>
+<a href="https://twitter.com/" target="_blank"><img alt="twit" src="./img/twitter.png" class="img_2_WS"></a>
 
-<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img alt="mail" src="../img/mailicon.jpg" class="img_3_WS"></a>
+<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img alt="mail" src="./img/mailicon.jpg" class="img_3_WS"></a>
   <div id="light" class="white_content">
   <div>
  <form action="sendMail.jsp" method="post">

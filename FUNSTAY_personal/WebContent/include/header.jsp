@@ -15,9 +15,9 @@ $(document).ready(function(){
 <tr>
 <td id="pont1_WS"><a href="#">FUNSTAY</a></td>
 <td><input type="text" id="text_1_WS" placeholder="검색할 내용을 적으세요"><input type="button" value="검색" id="btn_1_WS"></td>
-<td>언어번역기</td>
-<td>환율번역기</td>
-<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="../img/no_profile.png" id="img_1_WS"></a>
+<td><a href="#">호스트로 등록해보세요</a></td>
+<td><a href="#">도움말</a></td>
+<td><a href="javascript:void(0)" onclick="document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="./img/no_profile.png" id="img_1_WS"></a>
  <div id="light1" class="white_content_1">
   <div>
   <ul id="list_1_WS">
@@ -45,11 +45,11 @@ $(document).ready(function(){
     <div class="container">
      <div class="join_box">
   <!-- 이메일(아이디)입력 폼 -->   
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="uname"><b>ID</b></label>
+      <input type="text" placeholder="ID를 email형식으로 입력 해주세요" name="uname" required>
   <!-- 비밀번호 입력 폼 -->
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="myInput" required>
+      <input type="password" placeholder="Password를 입력하세요" name="psw" id="myInput" required>
       </div>
   <!-- caps lock -->
      <p id="text">WARNING! Caps lock is ON.</p> 
@@ -68,10 +68,10 @@ $(document).ready(function(){
       <button type="submit" class="subtn"><a>로그인</a></button>
   <!-- 아이디저장  --> 
       <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
+        <input type="checkbox" checked="checked" name="remember"> ID기억하기
       </label>
   <!-- 비밀번호 찾기 -->    
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="psw"><a href="#">패스워드를 잊어버리셨나요?</a></span>
     </div>
 
 <!-- 취소버튼 사용유무    
@@ -97,35 +97,35 @@ $(document).ready(function(){
     <div class="join_box">
 <!-- 이메일(아이디)입력 폼 -->    
       <i class="fa fa-envelope icon"></i>
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <label for="email"><b>ID</b></label>
+      <input type="text" placeholder="ID를 email형식으로 입력 해주세요" name="email" required>
 <!-- 비밀번호 입력 폼 -->      
 <i class="fa fa-key icon"></i>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="myInput1" required>
+      <input type="password" placeholder="Password 입력 해주세요" name="psw" id="myInput1" required>
 <!-- 비밀번호 보이게 -->
-      <input type="checkbox" onclick="myFunction()">Show Password<br>
+      <input type="checkbox" onclick="myFunction()" id="chb_WS">Password 보기<br>
 <!-- 비밀번호 확인 폼-->
 <i class="fa fa-key icon"></i>
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="psw-repeat"><b>Password 재확인</b></label>
+      <input type="password" placeholder="Password 다시 한번더 입력 해주세요" name="psw-repeat" required>
 <!-- 생년월일 폼 -->      
 <i class="fa fa-heart icon"></i>
-      <label for="birth"><b>birth</b></label><br> 
-      <input type="text" name="birth_yy" class="birth" placeholder="YY"required> 
+      <label for="birth"><b>생년월일</b></label><br> 
+      <input type="text" name="birth_yy" class="birth" placeholder="ex) 2018"required> 
 
-      <input type="text" name="birth_mm" class="birth" placeholder="MM"required>
+      <input type="text" name="birth_mm" class="birth" placeholder="01"required>
 
-      <input type="text" name="birth_dd" class="birth" placeholder="DD" required><br>  
+      <input type="text" name="birth_dd" class="birth" placeholder="01" required><br>  
 <!-- 폰번호 폼 -->      
 <i class="fa fa-phone icon"></i>
-      <label for="phone"><b>phone</b></label>
-      <input type="text" placeholder="Enter phone number" name="phone" required><br>   
+      <label for="phone"><b>전화번호</b></label>
+      <input type="text" placeholder="전화번호를 입력 해주세요" name="phone" required><br>   
       
-<!-- 아이디저장 -->
-      <label>
+<!-- 아이디저장일단 주석(회원가입은 자동 저장이 필요없으므로) -->
+      <!--<label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> 자동저장
-      </label>
+      </label>-->
 <!-- 약관동의 -->
       <p>계정을 생성하면 이용약관 및 개인정보 보호 정책에 동의하게 됩니다 <a href="#" style="color:dodgerblue"><br>동의약관</a>.</p>
 <!-- 전송버튼 -->
