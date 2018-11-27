@@ -350,6 +350,7 @@ public class MemberDAO {
 		return m_list;
 	}
 	
+	// QnA리스트
 	public List<QnaBean> getQnAList(String member_email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
