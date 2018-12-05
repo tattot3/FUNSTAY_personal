@@ -6,6 +6,7 @@
 // 현재 활성화 되어있는 페이지에 해당하는  목록을 border-bottom으로 밑줄 표시해주는 jquery
 $(document).ready(function(){
 	var pathArray = window.location.pathname.split('/');
+	// push and pull 테스트
 	// 마일리지 페이지의 기간 검색을 하면 가상 주소가 바뀌기 때문에 별도로 주소값을 지정
 	if(pathArray[2]==("MemberSearchMC.me")){
 		$('.a a:eq('+3+')').css({"border-bottom":"4px solid #cc1d1d"});
@@ -30,6 +31,7 @@ $(document).ready(function(){
 	<li class="a"><a href="./MemberMileage.me" class="aa">마일리지</a></li>
 	<li class="a"><a href="./MemberQNA.me">문의 확인</a></li>
 	<li><hr></li>
+	<li><hr><li>
 	<li class="a"><a href="#">숙소 정보 수정(없음)</a></li>
 	<li class="a"><a href="#">숙소 삭제(없음)</a></li>
 	<li class="a"><a href="#">예약 관리(없음)</a></li>
