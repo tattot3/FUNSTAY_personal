@@ -22,7 +22,8 @@ $(document).ready(function(){
 <div id="leftsection"></div>
 <div id="wrap">
 <div class="sub_menu">
-<ul>
+<ul>	
+	<li><a href="#">서브페이지 </a></li>
 	<li class="a"><a href="./MemberUpdate.me">회원 정보 수정</a></li>
 	<li class="a"><a href="./Booking.bo">예약및결제하기<br>(삭제 예정)</a></li>
 	<li class="a"><a href="./MyReserve.bk">MY RESERVE</a></li>
