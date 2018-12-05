@@ -7,7 +7,7 @@
 $(document).ready(function(){
 	var pathArray = window.location.pathname.split('/');
 	// push and pull 테스트
-	// 마일리지 페이지의 기간 검색을 하면 가상 주소가 바뀌기 때문에 별도로 주소값을 지정
+	// 마일리지 페이지의 기간 검색을 하면 가상 주소가 바뀌기 때문에 별도로 주소값을 지정gg
 	if(pathArray[2]==("MemberSearchMC.me")){
 		$('.a a:eq('+3+')').css({"border-bottom":"4px solid #cc1d1d"});
 	}
